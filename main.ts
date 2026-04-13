@@ -10,3 +10,12 @@ let state: GameState = GameState.Passive
 let targetInterval: number = 0   // sekundy (5–15)
 let startTime: number = 0        // ms – základ pro měření
 let score: number = 0
+
+input.onButtonPressed(Button.AB, function() {
+    if (GameState.Passive) {
+        Math.randomRange(5,15);
+        GameState.Started;
+        basic.showIcon(IconNames.Pitchfork);
+        control.runInBackground(() => music.playTone(440, 200));
+    }
+})
